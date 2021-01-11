@@ -32,3 +32,15 @@ resource "aws_security_group_rule" "ingress_cidr_rules" {
   protocol          = lookup(var.ingress_cidr_rules[count.index], "protocol")
   cidr_blocks       = split(",", lookup(var.ingress_cidr_rules[count.index], "cidr_blocks"))
 }
+
+resource "aws_security_group_rule" "egress_cidr_rules" {
+  count = length(var.ingress_cidr_rules)
+
+  security_group_id = local.security_group_id
+  type              = "egress"
+  description       = lookup(var.egress_cidr_rules[count.index], "desc")
+  from_port         = lookup(var.egress_cidr_rules[count.index], "from_port")
+  to_port           = lookup(var.egress_cidr_rules[count.index], "to_port")
+  protocol          = lookup(var.egress_cidr_rules[count.index], "protocol")
+  cidr_blocks       = split(",", lookup(var.egress_cidr_rules[count.index], "cidr_blocks"))
+}
