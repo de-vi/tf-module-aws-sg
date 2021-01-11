@@ -34,7 +34,7 @@ resource "aws_security_group_rule" "ingress_cidr_rules" {
 }
 
 resource "aws_security_group_rule" "egress_cidr_rules" {
-  count = length(var.ingress_cidr_rules)
+  count = length(var.egress_cidr_rules)
 
   security_group_id = local.security_group_id
   type              = "egress"
