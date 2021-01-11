@@ -1,11 +1,9 @@
 variable "name" {
-  type    = string
-  default = ""
+  type = string
 }
 
 variable "description" {
-  type    = string
-  default = ""
+  type = string
 }
 
 variable "create_security_group" {
@@ -15,8 +13,7 @@ variable "create_security_group" {
 }
 
 variable "vpc_id" {
-  type    = string
-  default = ""
+  type = string
 }
 
 variable "security_group_id" {
