@@ -33,6 +33,12 @@ variable "ingress_cidr_rules" {
   default     = []
 }
 
+variable "egress_security_group_rules" {
+  description = "List of cross security group rules"
+  type        = list(map(string))
+  default     = []
+}
+
 variable "egress_cidr_rules" {
   description = "List of cidr block rules"
   type        = list(map(string))
